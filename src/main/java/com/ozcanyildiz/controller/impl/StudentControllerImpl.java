@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ozcanyildiz.controller.IStudentController;
+import com.ozcanyildiz.dto.DtoStudent;
+import com.ozcanyildiz.dto.DtoStudentIU;
 import com.ozcanyildiz.entities.Student;
 import com.ozcanyildiz.services.IstudentServices;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/rest/api")
@@ -25,19 +29,19 @@ public class StudentControllerImpl implements IStudentController{
 	
 	@PostMapping(path="/save")
 	@Override
-	public Student saveStudent(@RequestBody Student student) {
-		return studentServices.saveStudent(student);
+	public DtoStudent saveStudent(@RequestBody @Valid DtoStudentIU dtoStudentIU) {
+		return studentServices.saveStudent(dtoStudentIU);
 	}
 
 	@GetMapping(path="/list")
 	@Override
-	public List<Student> getAllStudents() {
+	public List<DtoStudent> getAllStudents() {
 		return studentServices.getAllStudents();
 	}
 
 	@GetMapping(path="/list/{id}")
 	@Override
-	public Student getStudentByID(@PathVariable(name="id")Long idString) {
+	public DtoStudent getStudentByID(@PathVariable(name="id")Long idString) {
 		return studentServices.getStudentByID(idString);
 	}
 
@@ -50,8 +54,8 @@ public class StudentControllerImpl implements IStudentController{
 
 	@PutMapping(path="/update/{id}")
 	@Override
-	public Student updateStudent(@PathVariable(name="id") Long idString,@RequestBody Student updateStudent) {
-		return studentServices.updateStudent(idString, updateStudent);
+	public DtoStudent updateStudent(@PathVariable(name="id") Long idString,@RequestBody DtoStudentIU dtoStudentIU) {
+		return studentServices.updateStudent(idString, dtoStudentIU);
 		 
 	}
 

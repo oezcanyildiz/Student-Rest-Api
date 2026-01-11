@@ -2,18 +2,20 @@ package com.ozcanyildiz.controller;
 
 import java.util.List;
 
+import com.ozcanyildiz.dto.DtoStudent;
+import com.ozcanyildiz.dto.DtoStudentIU;
 import com.ozcanyildiz.entities.Student;
 
 public interface IStudentController {
 	
-	public Student saveStudent(Student student);
+	public DtoStudent saveStudent(DtoStudentIU dtoStudentIU);
 	
-	public List<Student> getAllStudents();
+	public List<DtoStudent> getAllStudents();
 	
-	public Student getStudentByID(Long idString);
+	public DtoStudent getStudentByID(Long idString);
 	
 	public void deleteStudent(Long idString);
 	
-	public Student updateStudent(Long idString, Student updateStudent);
+	public DtoStudent updateStudent(Long idString, DtoStudentIU dtoStudentIU);
 
 }

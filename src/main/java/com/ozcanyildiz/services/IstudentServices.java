@@ -2,18 +2,20 @@ package com.ozcanyildiz.services;
 
 import java.util.List;
 
-import com.ozcanyildiz.entities.Student;
+import com.ozcanyildiz.dto.DtoStudent;
+import com.ozcanyildiz.dto.DtoStudentIU;
+
 
 public interface IstudentServices {
 	
-	public Student saveStudent(Student student);
+	public DtoStudent saveStudent(DtoStudentIU student);
 	
-	public List<Student> getAllStudents();
+	public List<DtoStudent> getAllStudents();
 	
-	public Student getStudentByID(Long idString);
+	public DtoStudent getStudentByID(Long idString);
 	
 	public void deleteStudent(Long idString);
 	
-	public Student updateStudent(Long idString, Student updateStudent);
+	public DtoStudent updateStudent(Long idString, DtoStudentIU dtoStudentIU);
 
 }
